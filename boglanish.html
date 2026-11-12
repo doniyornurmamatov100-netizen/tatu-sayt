@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TATU - Bog'lanish</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Autentifikatsiya (Kirish) bo'limi -->
+<div class="card shadow-sm border-0 mt-4">
+    <div class="card-body p-4">
+        <h3 class="card-title h5 text-primary mb-3">Tizimga kirish (Autentifikatsiya)</h3>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="mb-3">
+                <label for="loginUsername" class="form-label">Foydalanuvchi nomi (Username):</label>
+                <input type="text" class="form-control" id="loginUsername" placeholder="Masalan: doniyor" required>
+            </div>
+            <div class="mb-3">
+                <label for="loginPassword" class="form-label">Parol (Password):</label>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Parolni kiriting" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirish</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Forma yuborilganda ishlaydigan funksiya
+    function handleLogin(event) {
+        event.preventDefault(); // Sahifa qayta yuklanishining oldini oladi
+        
+        const userVal = document.getElementById('loginUsername').value.trim();
+        const passVal = document.getElementById('loginPassword').value.trim();
+        
+        // main.js dagi autentifikatsiya funksiyasini chaqiramiz
+        authenticateUser(userVal, passVal);
+    }
+</script>
+    <!-- Header / Navigatsiya qismi -->
+    <header>
+        <nav>
+            <h1>TATU-SAYT</h1>
+            <ul>
+                <li><a href="index.html">Bosh sahifa</a></li>
+                <li><a href="fakultetlar.html">Fakultetlar</a></li>
+                <li><a href="yangiliklar.html">Yangiliklar</a></li>
+                <li><a href="boglanish.html" class="active">Bog'lanish</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Asosiy qism: Bog'lanish -->
+    <main>
+        <section class="contact-section">
+            <h2>Biz bilan bog'lanish</h2>
+            <div class="contact-container">
+                <!-- Chapda forma -->
+                <div class="contact-form">
+                    <h3>Xabar yuborish</h3>
+                    <form>
+                        <label for="name">Ismingiz:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email manzilingiz:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="message">Xabaringiz:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+
+                        <button type="submit" class="btn">Yuborish</button>
+                    </form>
+                </div>
+
+                <!-- O'ngda manzil va xarita -->
+                <div class="contact-info">
+                    <h3>Manzilimiz</h3>
+                    <p>Toshkent shahri, Amir Temur ko'chasi, 108-uy</p>
+                    <p>Telefon: +998 71 238-64-43</p>
+                    <p>Email: info@tuit.uz</p>
+                    
+                    <div class="map">
+                        <!-- Google Maps iframe yoki joylashuv bloki -->
+                        <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer / Pastki qism -->
+    <footer>
+        <p>&copy; 2026 TATU. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
